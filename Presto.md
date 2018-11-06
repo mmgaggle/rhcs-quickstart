@@ -1,8 +1,14 @@
-# Presto + RHCS Object Quickstart
+# Background
 
-Citing the [Presto Homepage](https://prestodb.io/), "Presto is an open source SQL query engine for running interactive analytics queries against data sources of all sizes ranging from gigabytes to petabytes."
+Presto is an open source SQL engine that was initially designed by [Facebook](https://www.facebook.com/notes/facebook-engineering/presto-interacting-with-petabytes-of-data-at-facebook/10151786197628920/) to increase the volume of queries against their 300 petabyte data warehouse, and get the results of those queries faster. Since it's release, Preso has seen adoption and contribution from tech heavyweights like [Netflix](https://medium.com/netflix-techblog/using-presto-in-our-big-data-platform-on-aws-938035909fd4). [Amazon Athena](https://aws.amazon.com/athena/) is an interactive query service designed to process data in Amazon S3, which is built on Presto. Enterprise versions of Presto are available from [Starburst](https://www.starburstdata.com/).
+
+# Object Storage
+
+
 
 This guide details how Presto can be used to query data stored as objects using the S3 compatable API as provided by [Red Hat Ceph Storage](https://www.redhat.com/en/technologies/storage/ceph).
+
+[Starburst](https://www.starburstdata.com/)
 
 # Requirements
 
