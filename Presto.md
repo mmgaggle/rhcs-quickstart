@@ -1,14 +1,10 @@
 # Background
 
-Presto is an open source SQL engine that was initially designed by [Facebook](https://www.facebook.com/notes/facebook-engineering/presto-interacting-with-petabytes-of-data-at-facebook/10151786197628920/) to increase the volume of queries against their 300 petabyte data warehouse, and get the results of those queries faster. Since it's release, Preso has seen adoption and contribution from tech heavyweights like [Netflix](https://medium.com/netflix-techblog/using-presto-in-our-big-data-platform-on-aws-938035909fd4). [Amazon Athena](https://aws.amazon.com/athena/) is an interactive query service designed to process data in Amazon S3, which is built on Presto. Enterprise versions of Presto are available from [Starburst](https://www.starburstdata.com/).
+Presto is a [Apache licensed](https://github.com/prestodb/presto/blob/master/LICENSE), distributed ANSI SQL query engine initially developed by [Facebook](https://www.facebook.com/notes/facebook-engineering/presto-interacting-with-petabytes-of-data-at-facebook/10151786197628920/). Facebook developed Presto to decrease query latency and increase query throughput against their 300 petabyte data warehouse. Since it's initial release, Preso has seen adoption and contributions from the likes of Airbnb, [Netflix](https://medium.com/netflix-techblog/using-presto-in-our-big-data-platform-on-aws-938035909fd4), [Uber](https://eng.uber.com/presto/), and Walmart. [Amazon Athena](https://aws.amazon.com/athena/) is an interactive query service designed to process data in Amazon S3, which is built on Presto. [Presto Enterprise](https://www.starburstdata.com/presto-enterprise/) is a commercially supported distribution of Presto made available by [Starburst](https://www.starburstdata.com/).
 
 # Object Storage
 
-
-
-This guide details how Presto can be used to query data stored as objects using the S3 compatable API as provided by [Red Hat Ceph Storage](https://www.redhat.com/en/technologies/storage/ceph).
-
-[Starburst](https://www.starburstdata.com/)
+Presto's connector API allows queries across a variety of data sources, including object storage. Object storage is often the most economical way of storing large volumes of data, which makes it attractive for large data warehouses. This guide details how Presto can be used to query data stored as objects using the S3 compatable API as provided by [Red Hat Ceph Storage](https://www.redhat.com/en/technologies/storage/ceph).
 
 # Requirements
 
