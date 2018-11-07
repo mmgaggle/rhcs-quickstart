@@ -1,19 +1,27 @@
 # Background
 
-Presto is a [Apache licensed](https://github.com/prestodb/presto/blob/master/LICENSE), distributed ANSI SQL query engine initially developed by [Facebook](https://www.facebook.com/notes/facebook-engineering/presto-interacting-with-petabytes-of-data-at-facebook/10151786197628920/). Facebook developed Presto to decrease query latency and increase query throughput against their 300 petabyte data warehouse. Since it's initial release, Preso has seen adoption and contributions from the likes of Airbnb, [Netflix](https://medium.com/netflix-techblog/using-presto-in-our-big-data-platform-on-aws-938035909fd4), [Uber](https://eng.uber.com/presto/), and Walmart. [Presto Enterprise](https://www.starburstdata.com/presto-enterprise/) is a commercially supported distribution of Presto made available by [Starburst](https://www.starburstdata.com/).
+Presto is a [Apache licensed](https://github.com/prestodb/presto/blob/master/LICENSE), distributed ANSI SQL query engine initially developed by [Facebook](https://www.facebook.com/notes/facebook-engineering/presto-interacting-with-petabytes-of-data-at-facebook/10151786197628920/). Facebook developed Presto to decrease query latency and in turn increase query throughput against their 300 petabyte data warehouse. Since it's initial release, Presto has seen adoption and contributions from the likes of Airbnb, [Netflix](https://medium.com/netflix-techblog/using-presto-in-our-big-data-platform-on-aws-938035909fd4), [Uber](https://eng.uber.com/presto/), and Walmart. [Presto Enterprise](https://www.starburstdata.com/presto-enterprise/) is a commercially supported distribution of Presto made available by [Starburst](https://www.starburstdata.com/).
 
 # Object Storage
 
 Presto's connector API allows queries across a variety of data sources, including object storage. Object storage is often the most economical way of storing large volumes of data, which makes it attractive for large data warehouses. A common architectural pattern in the public cloud is to use Presto to analyze data stored in Amazon S3. This pattern is so prevalent that it has been expressed as a service in the form of [Amazon Athena](https://aws.amazon.com/athena/).
 
-There is a growing number of organizations who are interested in extending this architectural pattern, or even developing an equivalent service, on their own infrastructure. This provides data engineers and data analysts with a similar experience, regardless of where the data exists. This guide details how to configure Presto to query data stored as objects using the S3 compatable API as provided by [Red Hat Ceph Storage](https://www.redhat.com/en/technologies/storage/ceph).
-
-# Requirements
-
-* [Hive Metastore](https://cwiki.apache.org/confluence/display/Hive/Design#Design-Metastore)
-* [Hive Connector](https://prestodb.io/docs/current/connector/hive.html) (Included in Presto)
+There is a growing number of organizations who are interested in extending this architectural pattern, or even developing an equivalent service, on their own infrastructure. The overarching goal is t provide data engineers and data analysts with a similar experience, regardless of where the data exists. This guide details how to configure Presto to query data stored as objects using the S3 compatable API as provided by [Red Hat Ceph Storage](https://www.redhat.com/en/technologies/storage/ceph).
 
 # Hive Connector
+
+The [Hive connector](https://prestodb.io/docs/current/connector/hive.html) makes it possible for Presto to query data sets cataloged by a [Hive Metastore](https://cwiki.apache.org/confluence/display/Hive/Design#Design-Metastore). This includes Hive external tables which reference a path to a S3 bucket or prefix.
+
+
+Hive databases, tables, or partitions can include a LOCATION that maps to a S3 bucket or S3 bucket prefix. As an example, an entire database could be created through the hive cli such that all of its tables exist within the bucket "example", under the prefix "mydb":
+
+```
+create database mydb location 's3a://example/mydb'
+```
+
+# Hive Metastore
+
+
 
 
 
